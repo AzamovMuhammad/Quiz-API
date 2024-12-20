@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     color: white;
+    position: relative;
 }
 .loginPart{
     width: 55%;
@@ -34,6 +35,46 @@
 .loginPart img:active{
     scale: 0.99;
 }
+
+.animalsDiv{
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 10;
+    background: #47474772;
+}
+.animalsCards{
+    width: 65%;
+    padding: 40px 0px;
+    background: white;
+    box-shadow: 0px 0px 10px white;
+    border-radius: 15px;
+    display: flex;
+    justify-items: stretch;
+    align-items: stretch;
+    position: relative;
+}
+.animalsCards img{
+    width: 280px;
+}
+#close{
+    position: absolute;
+    z-index: 11;
+    top: 10px;
+    right: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid black;
+    padding: 0px 9px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#close:active{
+    scale: 0.98;
+}
+
 .loginPart input{
     width: 90%;
     padding: 10px;
