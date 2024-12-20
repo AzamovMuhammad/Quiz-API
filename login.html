@@ -12,7 +12,13 @@
         <div class="loginPart">
             <h1>Enter info for Login</h1>
             <div class="changeimg">
-                <img id="loginImg" src="assets/img/login Animals Img/ayiq.jpeg" alt="" >
+                <img id="loginImg" onclick="openModal()" src="assets/img/login Animals Img/ayiq.jpeg" alt="" >
+            </div>
+            <div class="animalsDiv">
+                <div class="animalsCards">
+                    <h1 id="close" onclick="closeModal()" style="color: black;">X</h1>
+                    <!-- <img class="animal" src="" alt=""> -->
+                </div>
             </div>
             <input type="text" placeholder="Enter username..." required>
             <input type="password" placeholder="Enter Password..." required>
