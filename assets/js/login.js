@@ -36,3 +36,16 @@ function openModal() {
     animalsDiv.style.display = 'flex'
 }
 
+
+const animalsCards = document.querySelector('.animalsCards')
+animalsCards.innerHTML = ''
+animals.map((jonzot, index) => {
+    animalsCards.innerHTML += `
+    <img class="animal" onclick="choosenAnimal(${index})" src="${jonzot.animal}" alt="">
+    `
+})
+
+function choosenAnimal(index) {
+    document.getElementById('loginImg').src = animals[index].animal
+    closeModal()
+}
