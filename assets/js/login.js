@@ -27,3 +27,12 @@ const animals = [
 const selectRandomIndex = Math.floor(Math.random()*animals.length)
 const selectImg = animals[selectRandomIndex]
 document.getElementById('loginImg').src = selectImg.animal
+
+const animalsDiv = document.querySelector('.animalsDiv')
+function closeModal() {
+    animalsDiv.style.display = 'none'
+}
+function openModal() {
+    animalsDiv.style.display = 'flex'
+}
+
