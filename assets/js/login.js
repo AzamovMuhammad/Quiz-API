@@ -71,12 +71,14 @@ function submitUser() {
       userData.password === userObject.password
   );
 
-  if (sameUser) {
-    window.location.href = 'index.html'
+  if (sameUser) { 
+    console.log(sameUser.index);
+    // window.location.href = `index.html?userIndex=${usersData.length}`;
   } else {
     usersData.push(userObject);
     localStorage.setItem("userData", JSON.stringify(usersData));
-    window.location.href = 'index.html'
+    console.log(userObject.index);
+    // window.location.href = `index.html?userIndex=${usersData.length}`;
   }
 
   document.getElementById("username").value = "";
