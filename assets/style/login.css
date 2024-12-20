@@ -1,106 +1,129 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-.container{
-    width: 100%;
-    height: 100vh;
-    background: #351570;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    position: relative;
+.container {
+  width: 100%;
+  height: 100vh;
+  background: #351570;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
 }
-.loginPart{
-    width: 55%;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #351570;
-    box-shadow: 0px 0px 10px black;
-    border-radius: 12px;
-    gap: 12px;
+.loginPart {
+  width: 55%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #351570;
+  box-shadow: 0px 0px 10px black;
+  border-radius: 12px;
+  gap: 12px;
 }
-.loginPart img{
-    width: 180px;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.4s all;
+.loginPart img {
+  width: 180px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.4s all;
 }
-.loginPart img:active{
-    scale: 0.99;
+.loginPart img:active {
+  scale: 0.99;
 }
 
-.animalsDiv{
-    width: 100%;
-    height: 100vh;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 10;
-    background: #47474772;
+.animalsDiv {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 10;
+  background: #47474772;
 }
-.animalsCards{
+#animal{
     width: 65%;
-    padding: 40px 0px;
-    background: white;
-    box-shadow: 0px 0px 10px white;
-    border-radius: 15px;
-    display: flex;
-    justify-items: stretch;
-    align-items: stretch;
+    height: 500px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.animalsCards img{
-    width: 280px;
+.animalsCards {
+  width: 100%;
+  height: 500px;
+  padding: 40px 0px;
+  background: white;
+  /* box-shadow: 0px 0px 10px white; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow-y: auto;
 }
-#close{
-    position: absolute;
-    z-index: 11;
-    top: 10px;
-    right: 10px;
-    font-family: 'Courier New', Courier, monospace;
-    border: 2px solid black;
-    padding: 0px 9px;
-    border-radius: 50%;
-    cursor: pointer;
+.animalsCards::-webkit-scrollbar {
+    width: 10px;
+  }
+.animalsCards::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+.animalsCards::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+.animalsCards::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+.animalsCards img {
+  width: 180px;
 }
-#close:active{
-    scale: 0.98;
+#close {
+  position: absolute;
+  z-index: 14;
+  top: 10px;
+  right: 15px;
+  font-family: "Courier New", Courier, monospace;
+  border: 2px solid black;
+  padding: 0px 9px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#close:active {
+  scale: 0.98;
 }
 
-.loginPart input{
-    width: 90%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 2px solid white;
-    background-color: transparent;
-    color: white;
-    font-size: 18px;
-    outline: none;
+.loginPart input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  outline: none;
 }
-.loginPart button{
-    width: 200px;
-    padding: 10px 0px;
-    border-radius: 6px;
-    border: 2px solid white;
-    background-color: transparent;
-    color: white;
-    font-size: 19px;
-    font-weight: 600;
-    transition: .5s ;
-    cursor: pointer;
+.loginPart button {
+  width: 200px;
+  padding: 10px 0px;
+  border-radius: 6px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 19px;
+  font-weight: 600;
+  transition: 0.5s;
+  cursor: pointer;
 }
-.loginPart button:hover{
-    background-color: white;
-    color: #351570;
+.loginPart button:hover {
+  background-color: white;
+  color: #351570;
 }
-.loginPart button:active{
-    scale: 0.96;
+.loginPart button:active {
+  scale: 0.96;
 }
