@@ -48,15 +48,37 @@ function choosenAnimal(index) {
   closeModal();
 }
 
+const usersData = JSON.parse(localStorage.getItem("userData")) || [];
 function submitUser() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
-  const userImg = document.getElementById("loginImg").src
-    if (username === "" && password === "") {
-        console.log(`inputlar to'ldirilmagan`);
-    }else{
-        console.log(`${username}, ${password}, ${userImg}`);
-        document.getElementById("username").value = "";
-        document.getElementById("password").value = "";
-    }
+  const userImg = document.getElementById("loginImg").src;
+
+  if (username === "" || password === "") {
+    console.log(`Inputlar to'ldirilmagan`);
+    return;
+  }
+
+  const userObject = {
+    username: username,
+    password: password,
+    userAvatar: userImg,
+  };
+
+  const sameUser = usersData.find(
+    (userData) =>
+      userData.username === userObject.username &&
+      userData.password === userObject.password
+  );
+
+  if (sameUser) {
+    window.location.href = 'index.html'
+  } else {
+    usersData.push(userObject);
+    localStorage.setItem("userData", JSON.stringify(usersData));
+    window.location.href = 'index.html'
+  }
+
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
 }
