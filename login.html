@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="assets/style/login.css">
+    <link rel="stylesheet" href="assets/style/login.css" />
     <script src="assets/js/login.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="loginPart">
-            <h1>Enter info for Login</h1>
-            <div class="changeimg">
-                <img id="loginImg" onclick="openModal()" src="assets/img/login Animals Img/ayiq.jpeg" alt="" >
-            </div>
-            <div class="animalsDiv">
-                <div id="animal">
-                    <h1 id="close" onclick="closeModal()" style="color: black;">X</h1>
-                    <div class="animalsCards">
-                        <img class="animal" src="" alt="">
-                    </div>
-                </div>
-            </div>
-            <input type="text" placeholder="Enter username..." required>
-            <input type="password" placeholder="Enter Password..." required>
-            <button>Submit</button>
+      <form class="loginPart">
+        <h1>Enter info for Login</h1>
+        <div class="changeimg">
+          <img
+            id="loginImg"
+            onclick="openModal()"
+            src="assets/img/login Animals Img/ayiq.jpeg"
+            alt="" />
         </div>
+        <div class="animalsDiv">
+          <div id="animal">
+            <h1 id="close" onclick="closeModal()" style="color: black">X</h1>
+            <div class="animalsCards">
+              <img class="animal" src="" alt="" />
+            </div>
+          </div>
+        </div>
+        <input
+          type="text"
+          placeholder="Enter username..."
+          required
+          id="username" />
+        <input
+          type="password"
+          placeholder="Enter Password..."
+          required
+          id="password" />
+        <button type="submit" onclick="submitUser()">Submit</button>
+      </form>
     </div>
-</body>
+  </body>
 </html>
