@@ -79,8 +79,13 @@ function submitUser() {
   );
 
   if (sameUser) { 
+<<<<<<< Updated upstream
     const userId = usersData.indexOf(sameUser)
     window.location.href = `test.html?userId=${userId}`;
+=======
+    console.log(sameUser.index);
+    window.location.href = `index.html?userIndex=${usersData.length}`;
+>>>>>>> Stashed changes
   } else {
     usersData.push(userObject);
     localStorage.setItem("userData", JSON.stringify(usersData));
