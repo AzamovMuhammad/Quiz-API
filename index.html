@@ -12,7 +12,7 @@
     <div class="container">
         <h1 class="title">Quiz App</h1>
         <div class="box-card">
-            <form class="settings-form">
+            <div class="settings-form">
                 <div class="form-group">
                     <label for="questionCount">Number of Questions:</label>
                     <input type="number" id="questionCount" name="questionCount" min="1" max="100" value="10">
@@ -25,8 +25,8 @@
                         <option value="hard">Hard</option>
                     </select>
                 </div>
-            <button type="submit" class="start-button">Start Quiz</button>
-            </form>
+            <button class="start-button" onclick="changeIndo()">Start Quiz</button>
+            </div>
         </div>
     </div>
 </body>

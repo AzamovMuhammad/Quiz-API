@@ -10,9 +10,16 @@ if (usersData[userId]) {
 }
 
 let a = 0;
+let b = 0
+const userInfo = []
 function score() {
   a = a + 1;
   document.querySelector(".score").innerHTML = a;
+}
+function numberOfStartGame() {
+  b = b + 1;
+  document.querySelector(".numberGame").innerHTML = b;
+  window.location.href = 'login.html'
 }
 
 

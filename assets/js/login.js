@@ -79,21 +79,13 @@ function submitUser() {
   );
 
   if (sameUser) { 
-<<<<<<< Updated upstream
     const userId = usersData.indexOf(sameUser)
-    window.location.href = `test.html?userId=${userId}`;
-=======
-    console.log(sameUser.index);
-    window.location.href = `index.html?userIndex=${usersData.length}`;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+    window.location.href = `index.html?userId=${userId}`;
   } else {
     usersData.push(userObject);
     localStorage.setItem("userData", JSON.stringify(usersData));
     const userId = usersData.indexOf(userObject)
-    window.location.href = `test.html?userId=${userId}`;
+    window.location.href = `index.html?userId=${userId}`;
   }
 
   document.getElementById("username").value = "";
