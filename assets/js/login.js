@@ -24,10 +24,12 @@ const animals = [
   { animal: "assets/img/login Animals Img/yolbars.jpeg" },
 ];
 
+// page ochilganda data ichidan random bita rasmni chiqarib beradi.
 const selectRandomIndex = Math.floor(Math.random() * animals.length);
 const selectImg = animals[selectRandomIndex];
 document.getElementById("loginImg").src = selectImg.animal;
 
+// modalni ochilishi va yopilishi
 const animalsDiv = document.querySelector(".animalsDiv");
 function closeModal() {
   animalsDiv.style.display = "none";
@@ -36,6 +38,7 @@ function openModal() {
   animalsDiv.style.display = "flex";
 }
 
+// animals arraydan rasmlarni tanlash uchun hamma rasmni chiqarib beradi.
 const animalsCards = document.querySelector(".animalsCards");
 animalsCards.innerHTML = "";
 animals.map((jonzot, index) => {
@@ -43,10 +46,14 @@ animals.map((jonzot, index) => {
     <img class="animal" onclick="choosenAnimal(${index})" src="${jonzot.animal}" alt="">
     `;
 });
+
+// hamma chiqgan rasmlardan bittashini tanlab ekranga chiqarib beradi
 function choosenAnimal(index) {
   document.getElementById("loginImg").src = animals[index].animal;
   closeModal();
 }
+
+
 
 const usersData = JSON.parse(localStorage.getItem("userData")) || [];
 function submitUser() {
@@ -72,13 +79,13 @@ function submitUser() {
   );
 
   if (sameUser) { 
-    console.log(sameUser.index);
-    // window.location.href = `index.html?userIndex=${usersData.length}`;
+    const userId = usersData.indexOf(sameUser)
+    window.location.href = `test.html?userId=${userId}`;
   } else {
     usersData.push(userObject);
     localStorage.setItem("userData", JSON.stringify(usersData));
-    console.log(userObject.index);
-    // window.location.href = `index.html?userIndex=${usersData.length}`;
+    const userId = usersData.indexOf(userObject)
+    window.location.href = `test.html?userId=${userId}`;
   }
 
   document.getElementById("username").value = "";
