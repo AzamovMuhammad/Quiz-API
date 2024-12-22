@@ -85,6 +85,9 @@ function submitUser() {
 =======
     console.log(sameUser.index);
     window.location.href = `index.html?userIndex=${usersData.length}`;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   } else {
     usersData.push(userObject);
