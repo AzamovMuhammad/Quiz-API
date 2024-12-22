@@ -81,6 +81,9 @@ function submitUser() {
   if (sameUser) { 
     const userId = usersData.indexOf(sameUser)
     window.location.href = `index.html?userId=${userId}`;
+
+    console.log(sameUser.index);
+
   } else {
     usersData.push(userObject);
     localStorage.setItem("userData", JSON.stringify(usersData));
