@@ -6,5 +6,5 @@ function changeIndo() {
 
   sessionStorage.setItem("qCount", JSON.stringify(countQ));
   sessionStorage.setItem("mode", JSON.stringify(difficulty));
-  window.location.href = `category.html?userId=${userId}`;
+  window.location.href = `question.html`;
 }

@@ -22,4 +22,11 @@ function numberOfStartGame() {
   window.location.href = 'login.html'
 }
 
-
+const arreyAllInfo = []
+const objectInfo = {
+  username: username,
+  avatar: avatar,
+  totalOfGame: totalOfGame,
+  totalOfFindAnswer: totalOfFindAnswer,
+  tatalofFindAnswerAll: tatalofFindAnswerAll
+}
