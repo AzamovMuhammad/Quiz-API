@@ -11,19 +11,19 @@ const categorys = [
   { "id": "17", "category": "Science & Nature" , "img":'https://img.lovepik.com//photo/50048/1183.jpg_860.jpg' },
   { "id": "18", "category": "Science: Computers" , "img":'https://i.pinimg.com/originals/40/ce/e2/40cee2ae407de99af49bea4ff771bcff.jpg' },
   { "id": "19", "category": "Science: Mathematics" , "img":'https://img.freepik.com/premium-vector/science-technology-engineering-math-linear-colored-frame_104589-4481.jpg?semt=ais_hybrid' },
-  { "id": "20", "category": "Mythology" , "img":'' },
-  { "id": "21", "category": "Sports" , "img":'' },
-  { "id": "22", "category": "Geography" , "img":'' },
-  { "id": "23", "category": "History" , "img":'' },
-  { "id": "24", "category": "Politics" , "img":'' },
-  { "id": "25", "category": "Art" , "img":'' },
-  { "id": "26", "category": "Celebrities" , "img":'' },
-  { "id": "27", "category": "Animals" , "img":'' },
-  { "id": "28", "category": "Vehicles" , "img":'' },
-  { "id": "29", "category": "Entertainment: Comics" , "img":'' },
-  { "id": "30", "category": "Science: Gadgets" , "img":'' },
-  { "id": "31", "category": "Entertainment: Japanese Anime & Manga" , "img":'' },
-  { "id": "32", "category": "Entertainment: Cartoon & Animations" , "img":'' }
+  { "id": "20", "category": "Mythology" , "img":'https://t4.ftcdn.net/jpg/08/63/40/61/360_F_863406151_LCwpSlP4fnSLL6dJwiztw5Ois8oJHByN.jpg' },
+  { "id": "21", "category": "Sports" , "img":'https://cdn11.bigcommerce.com/s-jdhnct1/images/stencil/1280x1280/products/233/741/sports_marketing_background__14948.1446754476.jpg?c=2' },
+  { "id": "22", "category": "Geography" , "img":'https://static.vecteezy.com/system/resources/thumbnails/041/402/682/small_2x/ai-generated-a-globe-symbolizing-worldliness-or-travel-photo.jpeg' },
+  { "id": "23", "category": "History" , "img":'https://wallpapers.com/images/hd/historical-background-2560-x-1600-q8k2ub17sd2sxqu3.jpg' },
+  { "id": "24", "category": "Politics" , "img":'https://img.freepik.com/premium-photo/democracy-blue-political-background_87720-86681.jpg' },
+  { "id": "25", "category": "Art" , "img":'https://t4.ftcdn.net/jpg/07/63/11/39/360_F_763113923_rrXxrAq56IUGX43Z9P4VhDvkVctM0Xc7.jpg' },
+  { "id": "26", "category": "Celebrities" , "img":'https://www.shutterstock.com/image-vector/red-carpet-crowd-fans-paparazzi-600nw-1620128815.jpg' },
+  { "id": "27", "category": "Animals" , "img":'https://img.freepik.com/premium-photo/world-animal-day_1322041-2255.jpg' },
+  { "id": "28", "category": "Vehicles" , "img":'https://img.freepik.com/premium-photo/car-nature-free-photo-hd-background_915071-96472.jpg' },
+  { "id": "29", "category": "Entertainment: Comics" , "img":'https://img.freepik.com/free-vector/flat-comic-style-background-copy-space_52683-54924.jpg' },
+  { "id": "30", "category": "Science: Gadgets" , "img":'https://static.vecteezy.com/system/resources/thumbnails/047/613/744/small_2x/ai-letters-inside-digital-brain-on-dark-background-concept-of-artificial-intelligence-circuit-elements-technology-science-and-innovation-photo.jpg' },
+  { "id": "31", "category": "Entertainment: Japanese Anime & Manga" , "img":'https://otakukart.com/wp-content/uploads/2022/08/Why-is-Manga-Right-to-Left-in-Terms-of-Reading-2.jpg' },
+  { "id": "32", "category": "Entertainment: Cartoon & Animations" , "img":'https://t4.ftcdn.net/jpg/05/71/32/77/360_F_571327732_wIewi34aQ77ES1ZiAZfpegfXjnt1Fhul.jpg' }
 ]
 
 
