@@ -80,14 +80,12 @@ function submitUser() {
 
   if (sameUser) { 
     const userId = usersData.indexOf(sameUser)
-    window.location.href = `index.html?userId=${userId}`;
-    console.log(sameUser.index);
-
+    window.location.href = `category.html?userId=${userId}`;
   } else {
     usersData.push(userObject);
     localStorage.setItem("userData", JSON.stringify(usersData));
     const userId = usersData.indexOf(userObject)
-    window.location.href = `index.html?userId=${userId}`;
+    window.location.href = `category.html?userId=${userId}`;
   }
 
   document.getElementById("username").value = "";
