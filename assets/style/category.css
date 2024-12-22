@@ -28,7 +28,7 @@ header {
   color: white;
 }
 
-#login_icon {
+#avatar {
   width: 30px;
   height: 30px;
 }
@@ -61,6 +61,7 @@ main {
   justify-content: space-between;
   position: fixed;
   margin-top: 65px;
+  cursor: pointer;
 }
 .menu_t {
   width: 100%;
@@ -132,9 +133,13 @@ main {
   align-items: end;
   width: 200px;
   height: 230px;
-  background-color: blueviolet;
-  box-shadow: 2px 2px 2px 1px rgb(188, 188, 188);
+  color: rgb(255, 255, 255);
   border-radius: 7px;
+  text-align: center;
+  background-size: cover; 
+  background-position: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .topic_name {
