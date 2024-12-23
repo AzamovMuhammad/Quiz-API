@@ -141,6 +141,7 @@ main {
   text-align: center;
   background-size: cover; 
   background-position: center;
+  color: white;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
