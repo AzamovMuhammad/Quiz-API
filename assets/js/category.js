@@ -33,9 +33,18 @@ axios
   .get(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`)
   .then((response) => {
     const userData = response.data;
-    document.getElementById('username').innerHTML = userData[userId].username
-    document.getElementById('avatar').src = userData[userId].userAvatar
+    console.log(userData); 
+    const user = userData.find(user => user.id === userId);
+    if (user) {
+      document.getElementById('username').innerHTML = user.username;
+      document.getElementById('avatar').src = user.userAvatar;
+    } else {
+      console.error('Foydalanuvchi topilmadi.');
+    }
   })
+  .catch((error) => {
+    console.error('Xatolik yuz berdi:', error);
+  });
 
 const all_card = document.querySelector('.all_card');
 
