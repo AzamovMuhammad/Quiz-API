@@ -65,13 +65,11 @@ function submitUser() {
   const password = document.getElementById("password").value;
   const userAvatar = document.getElementById("loginImg").src;
 
-  // Check if inputs are empty
   if (username === "" || password === "") {
     console.log(`Inputlar to'ldirilmagan`);
     return;
   }
 
-  // Prepare the user object to be sent to the API
   const userObject = {
     username: username,
     password: password,
@@ -80,39 +78,29 @@ function submitUser() {
     totalOfGame: 0,
   };
 
-  // Fetch existing users from the API to check for duplicates
   axios
     .get(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`)
     .then((response) => {
-      // Check if the user with the same username and password already exists
       const existingUser = response.data.find(
         (user) => user.username === username && user.password === password
       );
 
       if (existingUser) {
-        // If user already exists, show a message
-        console.log("User already exists with this username and password.");
-        alert("User with the same username and password already exists.");
-        return; // Exit the function if the user already exists
+        window.location.href = `category.html?userId=${existingUser.id}`
       }
-
-      // If the user does not exist, proceed to POST the new user data
       axios
         .post(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`, userObject)
         .then((response) => {
-          console.log("User submitted successfully", response);
-          // Redirect to the category page with the user ID
+          console.log("Foydalanuvchi muvaffaqiyatli submit bo'ldi", response);
           window.location.href = `category.html?userId=${response.data.id}`;
         })
         .catch((error) => {
-          console.log("Error submitting user", error);
+          console.log("Foydalanuvchini yuborishda xatolik yuz berdi", error);
         });
     })
     .catch((error) => {
-      console.log("Error fetching existing users", error);
+      console.log("Mavjud foydalanuvchilarni olishda xatolik yuz berdi", error);
     });
-
-  // Clear the input fields after submission attempt
   document.getElementById("username").value = "";
   document.getElementById("password").value = "";
 }
