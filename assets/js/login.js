@@ -53,40 +53,33 @@ function choosenAnimal(index) {
   closeModal();
 }
 
-
-
-const usersData = JSON.parse(localStorage.getItem("userData")) || [];
 function submitUser() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
-  const userImg = document.getElementById("loginImg").src;
+  const userAvatar = document.getElementById("loginImg").src;
 
   if (username === "" || password === "") {
     console.log(`Inputlar to'ldirilmagan`);
     return;
   }
-
   const userObject = {
     username: username,
     password: password,
-    userAvatar: userImg,
+    userAvatar: userAvatar,
+    totalOfFindAnswerAll: 0,
+    totalOfGame: 0,
   };
 
-  const sameUser = usersData.find(
-    (userData) =>
-      userData.username === userObject.username &&
-      userData.password === userObject.password
-  );
+  axios
+    .post(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`, userObject)
+    .then((response) => {
+      console.log("User submitted successfully", response);
 
-  if (sameUser) { 
-    const userId = usersData.indexOf(sameUser)
-    window.location.href = `category.html?userId=${userId}`;
-  } else {
-    usersData.push(userObject);
-    localStorage.setItem("userData", JSON.stringify(usersData));
-    const userId = usersData.indexOf(userObject)
-    window.location.href = `category.html?userId=${userId}`;
-  }
+      window.location.href = `category.html?userId=${response.data.id}`;
+    })
+    .catch((error) => {
+      console.log("Error submitting user", error);
+    });
 
   document.getElementById("username").value = "";
   document.getElementById("password").value = "";
