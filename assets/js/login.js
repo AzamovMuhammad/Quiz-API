@@ -64,13 +64,11 @@ function submitUser() {
   const password = document.getElementById("password").value;
   const userAvatar = document.getElementById("loginImg").src;
 
-  // Validate inputs
   if (username === "" || password === "") {
     console.log(`Inputlar to'ldirilmagan`);
     return;
   }
 
-  // Prepare the user object
   const userObject = {
     username: username,
     password: password,
@@ -79,26 +77,22 @@ function submitUser() {
     totalOfGame: 0,
   };
 
-  // Fetch existing users from the API to check if the username and password already exist
+ 
   axios
     .get(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`)
     .then((response) => {
-      // Check if there is an existing user with the same username and password
       const existingUser = response.data.find(
         (user) => user.username === username && user.password === password
       );
 
       if (existingUser) {
-        // If the user exists, redirect to the category page with the user's ID
         console.log("User already exists. Redirecting to category page.");
         window.location.href = `category.html?userId=${existingUser.id}`;
       } else {
-        // If no matching user exists, post the new user data to the API
         axios
           .post(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`, userObject)
           .then((response) => {
             console.log("User successfully submitted", response);
-            // Redirect to the category page with the new user's ID
             window.location.href = `category.html?userId=${response.data.id}`;
           })
           .catch((error) => {
@@ -110,7 +104,6 @@ function submitUser() {
       console.log("Error fetching existing users", error);
     });
 
-  // Clear the input fields
   document.getElementById("username").value = "";
   document.getElementById("password").value = "";
 }

@@ -3,21 +3,20 @@ let questions = [];
 let correctAnswersCount = 0;
 let wrongAnswersCount = 0;
 
-const playersApiUrl = "https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers"; // Foydalanuvchilar API
-const userId = new URLSearchParams(document.location.search).get("category") || sessionStorage.getItem("userId"); // URL dan category parametrini olish yoki sessionStorage'dan olish
-console.log(userId); // category'ni tekshirish
+const playersApiUrl = "https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers"; 
+const userId = new URLSearchParams(document.location.search).get("category") || sessionStorage.getItem("userId");
+console.log(userId); 
 
-const qCount = JSON.parse(sessionStorage.getItem("qCount")) || 10; // Savollar soni
-const mode = JSON.parse(sessionStorage.getItem("mode")) || "easy"; // Qiyinchilik darajasi
+const qCount = JSON.parse(sessionStorage.getItem("qCount")) || 10; 
+const mode = JSON.parse(sessionStorage.getItem("mode")) || "easy"; 
 
-// API URL ni yaratish
 let apiUrl = userId == 8 ? 
   `https://opentdb.com/api.php?amount=${qCount}&difficulty=${mode}&type=multiple` : 
   `https://opentdb.com/api.php?amount=${qCount}&category=${userId}&difficulty=${mode}&type=multiple`;
 
-console.log("API URL:", apiUrl); // API URL'ni konsolda ko'rsatish
+console.log("API URL:", apiUrl);
 
-// Savollarni olish
+
 axios.get(apiUrl)
   .then((response) => {
     console.log("Savollar:", response.data);
@@ -45,7 +44,7 @@ axios.get(apiUrl)
     `;
   });
 
-// Savollarni yuklash
+
 function loadQuestion(questionData) {
   const questionElement = document.getElementById("question-text");
   const answersContainer = document.getElementById("answers");
@@ -75,8 +74,6 @@ function loadQuestion(questionData) {
     answersContainer.appendChild(answerOption);
   });
 }
-
-// Javobni tekshirish
 function handleAnswer(answerOption, questionData) {
   const isCorrect = answerOption.dataset.correct === "true";
   const answerOptions = document.querySelectorAll(".answer-option");
@@ -87,7 +84,7 @@ function handleAnswer(answerOption, questionData) {
     } else {
       option.classList.add("wrong");
     }
-    option.style.pointerEvents = "none"; // Bosilmasligi uchun
+    option.style.pointerEvents = "none";
   });
 
   if (isCorrect) {
@@ -107,15 +104,11 @@ function handleAnswer(answerOption, questionData) {
   }, 1000);
 }
 
-// Yakuniy natijani ko'rsatish
 function showFinalResult() {
   const questionContainer = document.getElementById("question-container");
   const quizContainer = document.querySelector(".quiz-container");
 
-  // Quiz ni yashirish
   quizContainer.style.display = "none";
-
-  // Foydalanuvchilarni olish
   fetchPlayers();
 
   questionContainer.innerHTML = `
@@ -130,7 +123,6 @@ function showFinalResult() {
   `;
 }
 
-// Foydalanuvchilarni olish
 function fetchPlayers() {
   axios.get(playersApiUrl)
     .then((response) => {
@@ -141,8 +133,6 @@ function fetchPlayers() {
       console.error("Foydalanuvchilarni olishda xato:", error);
     });
 }
-
-// Foydalanuvchilarni ko'rsatish
 function displayPlayers(players) {
   const playersContainer = document.getElementById("players-container");
   playersContainer.innerHTML = "<h3>Foydalanuvchilar</h3>";
@@ -159,9 +149,8 @@ function displayPlayers(players) {
   });
 }
 
-// Boshqa sahifaga o'tish
 function redirectToOtherPage() {
-  // Foydalanuvchi ID ni sessionStorage'ga saqlash
+ 
   sessionStorage.setItem("userId", userId);
   window.location.href = "category.html";
-}
+} 
