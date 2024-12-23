@@ -58,7 +58,7 @@ categorys.map((category) => {
 
 
 function loadingSettings(id) {
-  window.location.href = `index.html?category=${id}`
+  window.location.href = `settings.html?category=${id}`
 }
 
 
@@ -88,5 +88,5 @@ document.getElementById('serach_input').addEventListener('input', (e) => {
 
 
 function loadingSettings(id) {
-  window.location.href = `index.html?category=${id}&userId=${userId}`;
+  window.location.href = `settings.html?category=${id}&userId=${userId}`;
 }

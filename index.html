@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz app</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5692/5692030.png">
-    <script src="./assets/js/script.js" defer></script>
-    <link rel="stylesheet" href="./assets/style/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/style/login.css" />
+    <script src="assets/js/login.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
     <div class="container">
-        <h1 class="title">Quiz App</h1>
-        <div class="box-card">
-            <div class="settings-form">
-                <div class="form-group">
-                    <label for="questionCount">Number of Questions:</label>
-                    <input type="number" id="questionCount" name="questionCount" min="1" max="100" value="10">
-                </div>
-                <div class="form-group">
-                    <label for="difficulty">Difficulty:</label>
-                    <select id="difficulty" name="difficulty">
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
-                </div>
-            <button class="start-button" onclick="changeIndo()">Start Quiz</button>
-            </div>
+      <form class="loginPart">
+        <h1>Enter info for Login</h1>
+        <div class="changeimg">
+          <img
+            id="loginImg"
+            onclick="openModal()"
+            src="assets/img/login Animals Img/ayiq.jpeg"
+            alt="" />
         </div>
+        <div class="animalsDiv">
+          <div id="animal">
+            <h1 id="close" onclick="closeModal()" style="color: black">X</h1>
+            <div class="animalsCards">
+              <img class="animal" src="" alt="" />
+            </div>
+          </div>
+        </div>
+        <input
+          type="text"
+          placeholder="Enter username..."
+          required
+          id="username" />
+        <input
+          type="password"
+          placeholder="Enter Password..."
+          required
+          id="password" />
+        <button type="submit" onclick="submitUser()">Submit</button>
+      </form>
     </div>
-</body>
+  </body>
 </html>
