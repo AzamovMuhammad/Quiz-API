@@ -53,15 +53,25 @@ function choosenAnimal(index) {
   closeModal();
 }
 
+
+
+
+
+
+
+
 function submitUser() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
   const userAvatar = document.getElementById("loginImg").src;
 
+  // Check if inputs are empty
   if (username === "" || password === "") {
     console.log(`Inputlar to'ldirilmagan`);
     return;
   }
+
+  // Prepare the user object to be sent to the API
   const userObject = {
     username: username,
     password: password,
@@ -70,17 +80,39 @@ function submitUser() {
     totalOfGame: 0,
   };
 
+  // Fetch existing users from the API to check for duplicates
   axios
-    .post(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`, userObject)
+    .get(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`)
     .then((response) => {
-      console.log("User submitted successfully", response);
+      // Check if the user with the same username and password already exists
+      const existingUser = response.data.find(
+        (user) => user.username === username && user.password === password
+      );
 
-      window.location.href = `category.html?userId=${response.data.id}`;
+      if (existingUser) {
+        // If user already exists, show a message
+        console.log("User already exists with this username and password.");
+        alert("User with the same username and password already exists.");
+        return; // Exit the function if the user already exists
+      }
+
+      // If the user does not exist, proceed to POST the new user data
+      axios
+        .post(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`, userObject)
+        .then((response) => {
+          console.log("User submitted successfully", response);
+          // Redirect to the category page with the user ID
+          window.location.href = `category.html?userId=${response.data.id}`;
+        })
+        .catch((error) => {
+          console.log("Error submitting user", error);
+        });
     })
     .catch((error) => {
-      console.log("Error submitting user", error);
+      console.log("Error fetching existing users", error);
     });
 
+  // Clear the input fields after submission attempt
   document.getElementById("username").value = "";
   document.getElementById("password").value = "";
 }

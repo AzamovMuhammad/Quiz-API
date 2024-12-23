@@ -12,7 +12,13 @@ axios
                     <td>${user.username || '-'}</td>
                     <td>${user.totalOfGame || 0}</td>
                     <td>${user.totalOfFindAnswerAll || 0}</td>
+                    <td><img class='userimg' src="${user.userAvatar}" alt=""></td>
                 </tr>
             `;
         });
     })
+
+
+    function backToMain() {
+        window.location.href = 'category.html'
+    }
