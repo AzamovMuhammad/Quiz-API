@@ -5,6 +5,7 @@ console.log(userId); // userId'ni tekshirish
 function changeIndo() {
   const countQ = document.querySelector("#questionCount").value; // Savollar soni
   const difficulty = document.querySelector("#difficulty").value; // Qiyinchilik darajasi
+  
 
   // sessionStorage orqali tanlangan qiymatlarni saqlash
   sessionStorage.setItem("qCount", JSON.stringify(countQ));

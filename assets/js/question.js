@@ -4,7 +4,7 @@ let correctAnswersCount = 0;
 let wrongAnswersCount = 0;
 
 const playersApiUrl = "https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers"; // Foydalanuvchilar API
-const userId = new URLSearchParams(document.location.search).get("category"); // URL dan category parametrini olish
+const userId = new URLSearchParams(document.location.search).get("category") || sessionStorage.getItem("userId"); // URL dan category parametrini olish yoki sessionStorage'dan olish
 console.log(userId); // category'ni tekshirish
 
 const qCount = JSON.parse(sessionStorage.getItem("qCount")) || 10; // Savollar soni
@@ -161,5 +161,7 @@ function displayPlayers(players) {
 
 // Boshqa sahifaga o'tish
 function redirectToOtherPage() {
+  // Foydalanuvchi ID ni sessionStorage'ga saqlash
+  sessionStorage.setItem("userId", userId);
   window.location.href = "category.html";
 }
