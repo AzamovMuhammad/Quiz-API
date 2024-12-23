@@ -137,13 +137,17 @@ main {
   align-items: end;
   width: 200px;
   height: 230px;
-  color: #ffffff;
   border-radius: 7px;
   text-align: center;
   background-size: cover; 
   background-position: center;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#score-table {
+  color: black;
+  text-decoration: none;
 }
 
 .topic_name {

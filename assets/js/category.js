@@ -54,3 +54,33 @@ categorys.map((category) => {
 function loadingSettings(id) {
   window.location.href= `index.html?category=${id}`
 }
+
+
+function displayCategories(filter = '') {
+  all_card.innerHTML = ''; 
+
+  categorys
+    .filter((category) => 
+      category.category.toLowerCase().includes(filter.toLowerCase())
+    )
+    .map((category) => {
+      all_card.innerHTML += `
+        <div onclick="loadingSettings(${category.id})" class="topic_card" style="background-image: url('${category.img}');">
+          <h3 class="topic_name">${category.category}</h3>
+        </div>
+      `;
+    });
+}
+
+
+displayCategories();
+
+
+document.getElementById('serach_input').addEventListener('input', (e) => {
+  displayCategories(e.target.value); 
+});
+
+
+function loadingSettings(id) {
+  window.location.href = `index.html?category=${id}`;
+}
