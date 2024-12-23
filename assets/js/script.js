@@ -1,4 +1,4 @@
-const userId = new URLSearchParams(document.location.search).get("category");
+const userId = new URLSearchParams(document.location.search).get("userId  ");
 console.log(userId);
 function changeIndo() {
   const countQ = document.querySelector("#questionCount").value;
