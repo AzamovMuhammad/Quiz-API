@@ -1,10 +1,15 @@
-const userId = new URLSearchParams(document.location.search).get("userId  ");
-console.log(userId);
-function changeIndo() {
-  const countQ = document.querySelector("#questionCount").value;
-  const difficulty = document.querySelector("#difficulty").value;
+// settings page
+const userId = new URLSearchParams(document.location.search).get("category"); // userId olish
+console.log(userId); // userId'ni tekshirish
 
+function changeIndo() {
+  const countQ = document.querySelector("#questionCount").value; // Savollar soni
+  const difficulty = document.querySelector("#difficulty").value; // Qiyinchilik darajasi
+
+  // sessionStorage orqali tanlangan qiymatlarni saqlash
   sessionStorage.setItem("qCount", JSON.stringify(countQ));
   sessionStorage.setItem("mode", JSON.stringify(difficulty));
-  window.location.href = `question.html?category=${ userId }`;
+
+  // Question sahifasiga o'tish va category parametri bilan userId ni yuborish
+  window.location.href = `question.html?category=${userId}`;
 }

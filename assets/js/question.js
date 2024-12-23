@@ -1,83 +1,51 @@
-const userId = new URLSearchParams(document.location.search).get("category");
-const qCount = JSON.parse(sessionStorage.getItem("qCount")) || 10; // Значение по умолчанию
-const mode = JSON.parse(sessionStorage.getItem("mode")) || "easy"; // Значение по умолчанию
-let apiUrl = "";
-
-// Формируем URL для API вопросов
-if (userId == 8) {
-  apiUrl = `https://opentdb.com/api.php?amount=${qCount}&difficulty=${mode}&type=multiple`;
-} else {
-  apiUrl = `https://opentdb.com/api.php?amount=${qCount}&category=${userId}&difficulty=${mode}&type=multiple`;
-}
-
-// --------------------------------------------------------------------
-
 let currentQuestionIndex = 0;
 let questions = [];
 let correctAnswersCount = 0;
 let wrongAnswersCount = 0;
 
-const playersApiUrl = "https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers"; // URL для игроков
+const playersApiUrl = "https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers"; // Foydalanuvchilar API
+const userId = new URLSearchParams(document.location.search).get("category"); // URL dan category parametrini olish
+console.log(userId); // category'ni tekshirish
 
-// Функция для получения вопросов
-async function fetchQuestions() {
-  try {
-    console.log("Запрос отправляется...");
-    const response = await axios.get(apiUrl);
-    console.log("Ответ получен:", response.data);
+const qCount = JSON.parse(sessionStorage.getItem("qCount")) || 10; // Savollar soni
+const mode = JSON.parse(sessionStorage.getItem("mode")) || "easy"; // Qiyinchilik darajasi
+
+// API URL ni yaratish
+let apiUrl = userId == 8 ? 
+  `https://opentdb.com/api.php?amount=${qCount}&difficulty=${mode}&type=multiple` : 
+  `https://opentdb.com/api.php?amount=${qCount}&category=${userId}&difficulty=${mode}&type=multiple`;
+
+console.log("API URL:", apiUrl); // API URL'ni konsolda ko'rsatish
+
+// Savollarni olish
+axios.get(apiUrl)
+  .then((response) => {
+    console.log("Savollar:", response.data);
 
     if (response.data.response_code !== 0 || response.data.results.length === 0) {
-      throw new Error("Список вопросов пуст или некорректный запрос.");
+      const questionContainer = document.getElementById("question-container");
+      questionContainer.innerHTML = `
+        <div class="error-message">Savollarni olishda xato yuz berdi. Iltimos, qayta urinib ko'ring.</div>
+      `;
+      return;
     }
 
     questions = response.data.results;
-    loadQuestion(questions[currentQuestionIndex]);
-  } catch (error) {
-    console.error("Ошибка при получении вопросов:", error);
+    if (questions.length > 0) {
+      loadQuestion(questions[currentQuestionIndex]);
+    } else {
+      console.error("Savollar bo'sh yoki noto'g'ri olingan.");
+    }
+  })
+  .catch((error) => {
+    console.error("Savollarni olishda xato:", error);
     const questionContainer = document.getElementById("question-container");
     questionContainer.innerHTML = `
-      <div class="error-message">Не удалось загрузить вопросы. Проверьте параметры или повторите попытку позже.</div>
+      <div class="error-message">Savollarni olishda xato yuz berdi: ${error.message}</div>
     `;
-  }
-}
-
-// Функция для получения игроков
-async function fetchPlayers() {
-  try {
-    const response = await axios.get(playersApiUrl);
-    console.log("Данные игроков:", response.data); // Логируем данные игроков
-    return response.data;
-  } catch (error) {
-    console.error("Ошибка при получении данных игроков:", error);
-    return [];
-  }
-}
-
-// Функция для отображения игроков
-function displayPlayers(players) {
-  const playersContainer = document.getElementById("players-container");
-  playersContainer.innerHTML = ""; // Очищаем контейнер перед добавлением новых данных
-
-  if (!players || players.length === 0) {
-    playersContainer.innerHTML = "<p>Игроки отсутствуют</p>";
-    return;
-  }
-
-  players.forEach((player) => {
-    const playerName = player.name || "Неизвестный игрок";
-    const playerScore = player.score !== undefined ? player.score : "Нет очков";
-
-    const playerElement = document.createElement("div");
-    playerElement.classList.add("player");
-    playerElement.innerHTML = `
-      <p><strong>${playerName}</strong></p>
-      <p>Очки: ${playerScore}</p>
-    `;
-    playersContainer.appendChild(playerElement);
   });
-}
 
-// Функция для загрузки вопроса
+// Savollarni yuklash
 function loadQuestion(questionData) {
   const questionElement = document.getElementById("question-text");
   const answersContainer = document.getElementById("answers");
@@ -108,7 +76,7 @@ function loadQuestion(questionData) {
   });
 }
 
-// Обработка ответа
+// Javobni tekshirish
 function handleAnswer(answerOption, questionData) {
   const isCorrect = answerOption.dataset.correct === "true";
   const answerOptions = document.querySelectorAll(".answer-option");
@@ -119,7 +87,7 @@ function handleAnswer(answerOption, questionData) {
     } else {
       option.classList.add("wrong");
     }
-    option.style.pointerEvents = "none"; // Отключаем клики
+    option.style.pointerEvents = "none"; // Bosilmasligi uchun
   });
 
   if (isCorrect) {
@@ -139,39 +107,59 @@ function handleAnswer(answerOption, questionData) {
   }, 1000);
 }
 
-// Функция для отображения финального результата
-async function showFinalResult() {
+// Yakuniy natijani ko'rsatish
+function showFinalResult() {
   const questionContainer = document.getElementById("question-container");
   const quizContainer = document.querySelector(".quiz-container");
 
-  // Скрываем викторину
+  // Quiz ni yashirish
   quizContainer.style.display = "none";
 
-  // Получаем список игроков
-  const players = await fetchPlayers();
+  // Foydalanuvchilarni olish
+  fetchPlayers();
 
   questionContainer.innerHTML = `
     <div class="result-message">
-      Викторина завершена!
-      <br>Правильных ответов: ${correctAnswersCount}
-      <br>Неправильных ответов: ${wrongAnswersCount}
+      Viktorina yakunlandi!
+      <br>To'g'ri javoblar: ${correctAnswersCount}
+      <br>Notog'ri javoblar: ${wrongAnswersCount}
     </div>
     <div class="button-container">
-      <button class="button" onclick="redirectToOtherPage()">Перейти на другую страницу</button>
+      <button class="button" onclick="redirectToOtherPage()">Boshqa sahifaga o'tish</button>
     </div>
   `;
-
-  const playersContainer = document.createElement("div");
-  playersContainer.id = "players-container";
-  questionContainer.appendChild(playersContainer);
-
-  displayPlayers(players);
 }
 
-// Переход на другую страницу
+// Foydalanuvchilarni olish
+function fetchPlayers() {
+  axios.get(playersApiUrl)
+    .then((response) => {
+      const players = response.data;
+      displayPlayers(players);
+    })
+    .catch((error) => {
+      console.error("Foydalanuvchilarni olishda xato:", error);
+    });
+}
+
+// Foydalanuvchilarni ko'rsatish
+function displayPlayers(players) {
+  const playersContainer = document.getElementById("players-container");
+  playersContainer.innerHTML = "<h3>Foydalanuvchilar</h3>";
+
+  players.forEach((player) => {
+    const playerElement = document.createElement("div");
+    playerElement.classList.add("player");
+
+    playerElement.innerHTML = `
+      <img src="${player.userAvatar}" alt="${player.username}" class="player-avatar">
+      <span class="player-name">${player.username}</span>
+    `;
+    playersContainer.appendChild(playerElement);
+  });
+}
+
+// Boshqa sahifaga o'tish
 function redirectToOtherPage() {
-  window.location.href = "login.html";
+  window.location.href = "category.html";
 }
-
-// Запуск функции загрузки вопросов
-fetchQuestions();
