@@ -22,7 +22,7 @@ const categorys = [
   { "id": "28", "category": "Vehicles", "img": 'https://img.freepik.com/premium-photo/car-nature-free-photo-hd-background_915071-96472.jpg' },
   { "id": "29", "category": "Entertainment: Comics", "img": 'https://img.freepik.com/free-vector/flat-comic-style-background-copy-space_52683-54924.jpg' },
   { "id": "30", "category": "Science: Gadgets", "img": 'https://static.vecteezy.com/system/resources/thumbnails/047/613/744/small_2x/ai-letters-inside-digital-brain-on-dark-background-concept-of-artificial-intelligence-circuit-elements-technology-science-and-innovation-photo.jpg' },
-  { "id": "31", "category": "Entertainment: Japanese Anime & Manga", "img": 'https://otakukart.com/wp-content/uploads/2022/08/Why-is-Manga-Right-to-Left-in-Terms-of-Reading-2.jpg' },
+  { "id": "31", "category": "Entertainment: Japanese Anime & Manga", "img": 'https://applescoop.org/image/wallpapers/iphone/naruto-manga-japanese-ninja-anime-cartoon-colorful-otaku-shonen-konoha-28-10-2024-1730151515-hd-wallpaper.jpg' },
   { "id": "32", "category": "Entertainment: Cartoon & Animations", "img": 'https://t4.ftcdn.net/jpg/05/71/32/77/360_F_571327732_wIewi34aQ77ES1ZiAZfpegfXjnt1Fhul.jpg' }
 ]
 
