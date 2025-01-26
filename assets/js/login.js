@@ -75,11 +75,12 @@ function submitUser() {
     userAvatar: userAvatar,
     totalOfFindAnswerAll: 0,
     totalOfGame: 0,
+    bestScore: 0,
   };
 
  
   axios
-    .get(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`)
+    .get(`https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz`)
     .then((response) => {
       const existingUser = response.data.find(
         (user) => user.username === username && user.password === password
@@ -90,7 +91,7 @@ function submitUser() {
         window.location.href = `category.html?userId=${existingUser.id}`;
       } else {
         axios
-          .post(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`, userObject)
+          .post(`https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz`, userObject)
           .then((response) => {
             console.log("User successfully submitted", response);
             window.location.href = `category.html?userId=${response.data.id}`;
