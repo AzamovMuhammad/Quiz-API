@@ -3,16 +3,19 @@ let questions = [];
 let correctAnswersCount = 0;
 let wrongAnswersCount = 0;
 
-const playersApiUrl = "https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers"; 
-const userId = new URLSearchParams(document.location.search).get("category") || sessionStorage.getItem("userId");
+const userId = new URLSearchParams(document.location.search).get("userId"); 
 console.log(userId); 
+
+const playersApiUrl = "https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz"; 
+const categoryId = new URLSearchParams(document.location.search).get("category") || sessionStorage.getItem("userId");
+console.log(categoryId); 
 
 const qCount = JSON.parse(sessionStorage.getItem("qCount")) || 10; 
 const mode = JSON.parse(sessionStorage.getItem("mode")) || "easy"; 
 
-let apiUrl = userId == 8 ? 
+let apiUrl = categoryId == 8 ? 
   `https://opentdb.com/api.php?amount=${qCount}&difficulty=${mode}&type=multiple` : 
-  `https://opentdb.com/api.php?amount=${qCount}&category=${userId}&difficulty=${mode}&type=multiple`;
+  `https://opentdb.com/api.php?amount=${qCount}&category=${categoryId}&difficulty=${mode}&type=multiple`;
 
 console.log("API URL:", apiUrl);
 
@@ -152,5 +155,5 @@ function displayPlayers(players) {
 function redirectToOtherPage() {
  
   sessionStorage.setItem("userId", userId);
-  window.location.href = "category.html";
+  window.location.href = `category.html?userId=${userId}`;
 } 
