@@ -29,11 +29,12 @@ const categorys = [
 
 
 const userId = new URLSearchParams(document.location.search).get("userId");
+console.log(userId);
+
 axios
-  .get(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`)
+  .get(`https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz`)
   .then((response) => {
     const userData = response.data;
-    console.log(userData); 
     const user = userData.find(user => user.id === userId);
     if (user) {
       document.getElementById('username').innerHTML = user.username;
@@ -55,11 +56,6 @@ categorys.map((category) => {
       </div>
   `;
 });
-
-
-function loadingSettings(id) {
-  window.location.href = `settings.html?category=${id}`
-}
 
 
 function displayCategories(filter = '') {
@@ -89,4 +85,7 @@ document.getElementById('serach_input').addEventListener('input', (e) => {
 
 function loadingSettings(id) {
   window.location.href = `settings.html?category=${id}&userId=${userId}`;
+}
+function goToScoreTbale() {
+  window.location.href = `scoretable.html?userId=${userId}`;
 }

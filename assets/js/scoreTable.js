@@ -1,6 +1,9 @@
+const userId = new URLSearchParams(document.location.search).get("userId");
+console.log(userId);
+
 document.getElementById('line').innerHTML = ``;
 axios
-    .get(`https://676905edcbf3d7cefd394c2a.mockapi.io/quizusers`)
+    .get(`https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz`)
     .then((res) => {
         const usersData = res.data
         const sortedUsers = usersData.sort((a, b) => b.totalOfFindAnswerAll - a.totalOfFindAnswerAll);
@@ -20,5 +23,5 @@ axios
 
 
     function backToMain() {
-        window.location.href = 'category.html'
+        window.location.href = `category.html?userId=${userId}`
     }
