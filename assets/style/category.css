@@ -1,11 +1,12 @@
+/* Global Styles */
 * {
   padding: 0;
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
 }
 
 /* Header */
-
 header {
   width: 100%;
   height: 60px;
@@ -15,13 +16,18 @@ header {
   justify-content: space-between;
   box-shadow: 1px 1px 2px 2px rgb(211, 211, 211);
   position: fixed;
+  top: 0;
   cursor: pointer;
+  z-index: 1000;
 }
 
 .game_logo {
   margin-left: 20px;
   color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
+
 .account {
   display: flex;
   align-items: center;
@@ -33,117 +39,107 @@ header {
 #avatar {
   width: 50px;
   height: 50px;
+  border-radius: 50%;
 }
 
 #serach_input {
+  display: none;
   width: 300px;
   height: 35px;
-  font-size: 20px;
+  font-size: 16px;
   padding-left: 10px;
   border-radius: 7px;
-  border: solid darkmagenta;
+  border: 2px solid darkmagenta;
+  outline: none;
 }
 
-
 /* Main Section */
-
 main {
-  width: 100%;
   display: flex;
+  width: 100%;
+  margin-top: 60px; /* To avoid overlapping with header */
 }
 
 .sidebar {
   width: 200px;
-  height: 91vh;
-  overflow-y: scroll;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 3px;
-  margin-left: 5px;
-  justify-content: space-between;
+  padding-top: 5px;
   position: fixed;
-  margin-top: 65px;
+  top: 60px;
+  left: 0;
+  background-color: #f9f9f9;
   cursor: pointer;
 }
-.menu_t {
-  width: 100%;
-  height: 50px;
-  margin-top: 8px;
+
+.menu_t, .menu_topic, .help {
   display: flex;
   align-items: center;
   gap: 8px;
+  height: 50px;
+  padding: 0 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
-.menu_t:hover {
+
+.menu_t:hover, .menu_topic:hover, .help:hover {
   background-color: #cccccc;
 }
 
-.menu_icon {
+.menu_icon, .menu_topic .menu_icon, .help_icon {
   width: 30px;
   height: 30px;
 }
-.menu_topic {
-  width: 100%;
-  height: 50px;
-  margin-top: 8px;
-  display: flex;  
-  align-items: center;
-  gap: 8px;
-}
 
-.menu_topic:hover {
-  background-color: #cccccc;
-}
-
-
-.help {
-  width: 100%;
-  height: 50px;
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  
-}
-.help:hover {
-  background-color: #cccccc;
-}
 .help_icon {
   width: 20px;
   height: 20px;
-  margin-left: 3px;
 }
 
-
-
-
-
-
-/* Card */
-
-.all_card {
-  width: 100%;
-  margin-top: 70px;
-  display: flex;
-  grid-template-columns: 200px 200px 200px 200px 200px 200px;
-  gap: 20px;
+.home_page {
+  width: calc(100% - 200px);
   margin-left: 220px;
-  justify-content: center;
+}
+.bumbuzle {
+  display: none;
+  width: calc(100% - 200px);
+  margin-left: 220px;
+}
+
+/* Cards */
+.all_card {
+  display: none;
   flex-wrap: wrap;
+  width: calc(100% - 200px); /* Adjust for sidebar spacing */
+  margin-top: 10px;
+  padding: 20px;
+  gap: 20px;
+  margin-left: 220px; /* Offset for fixed sidebar */
+  justify-content: center;
 }
 
 .topic_card {
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   width: 200px;
   height: 230px;
   border-radius: 7px;
   text-align: center;
-  background-size: cover; 
+  background-size: cover;
   background-position: center;
   color: white;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.topic_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 #score-table {
@@ -153,4 +149,6 @@ main {
 
 .topic_name {
   margin-bottom: 50px;
+  font-size: 1rem;
+  font-weight: bold;
 }

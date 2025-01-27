@@ -26,8 +26,6 @@ const categorys = [
   { "id": "32", "category": "Entertainment: Cartoon & Animations", "img": 'https://t4.ftcdn.net/jpg/05/71/32/77/360_F_571327732_wIewi34aQ77ES1ZiAZfpegfXjnt1Fhul.jpg' }
 ]
 
-
-
 const userId = new URLSearchParams(document.location.search).get("userId");
 console.log(userId);
 
@@ -35,31 +33,48 @@ axios
   .get(`https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz`)
   .then((response) => {
     const userData = response.data;
-    const user = userData.find(user => user.id === userId);
+    const user = userData.find((user) => user.id === userId);
     if (user) {
-      document.getElementById('username').innerHTML = user.username;
-      document.getElementById('avatar').src = user.userAvatar;
+      document.getElementById("username").innerHTML = user.username;
+      document.getElementById("avatar").src = user.userAvatar;
     } else {
-      console.error('Foydalanuvchi topilmadi.');
+      console.error("Foydalanuvchi topilmadi.");
     }
   })
   .catch((error) => {
-    console.error('Xatolik yuz berdi:', error);
+    console.error("Xatolik yuz berdi:", error);
   });
 
-const all_card = document.querySelector('.all_card');
+const home_page = document.querySelector(".home_page");
+const all_card = document.querySelector(".all_card");
+const bumbuzle = document.querySelector(".bumbuzle");
+const serach_input = document.querySelector("#serach_input");
 
-categorys.map((category) => {
-  all_card.innerHTML += `
-      <div onclick="loadingSettings(${category.id})" class="topic_card" style="background-image: url('${category.img}');">
-        <h3 class="topic_name">${category.category}</h3>
-      </div>
-  `;
-});
+function showHome() {
+  home_page.style.display = 'block'
+  all_card.style.display = 'none'
+  bumbuzle.style.display = 'none'
+  serach_input.style.display = 'none'
+}
+function showSingle() {
+  home_page.style.display = 'none'
+  all_card.style.display = 'flex'
+  bumbuzle.style.display = 'none'
+  serach_input.style.display = 'block'
+
+}
+function showGroup() {
+  home_page.style.display = 'none'
+  all_card.style.display = 'none'
+  bumbuzle.style.display = 'block'
+  serach_input.style.display = 'block'
+
+}
 
 
-function displayCategories(filter = '') {
-  all_card.innerHTML = '';
+
+function displayCategories(filter = "") {
+  all_card.innerHTML = "";
 
   categorys
     .filter((category) =>
@@ -74,14 +89,11 @@ function displayCategories(filter = '') {
     });
 }
 
-
 displayCategories();
 
-
-document.getElementById('serach_input').addEventListener('input', (e) => {
+document.getElementById("serach_input").addEventListener("input", (e) => {
   displayCategories(e.target.value);
 });
-
 
 function loadingSettings(id) {
   window.location.href = `settings.html?category=${id}&userId=${userId}`;
