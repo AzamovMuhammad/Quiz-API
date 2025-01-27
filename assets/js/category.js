@@ -68,7 +68,6 @@ function showGroup() {
   all_card.style.display = 'none'
   bumbuzle.style.display = 'block'
   serach_input.style.display = 'block'
-
 }
 
 
