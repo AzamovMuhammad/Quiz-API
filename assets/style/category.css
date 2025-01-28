@@ -148,7 +148,13 @@ main {
 }
 
 .topic_name {
-  margin-bottom: 50px;
+  width: 100%;
+  height: 100%;
   font-size: 1rem;
   font-weight: bold;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding: 0px 10px 20px 10px;
+  background: linear-gradient(#00000000,#00000000,#00000000, #000000cb,#000000);
 }
