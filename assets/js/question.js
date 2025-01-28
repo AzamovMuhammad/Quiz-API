@@ -77,6 +77,8 @@ function loadQuestion(questionData) {
     answersContainer.appendChild(answerOption);
   });
 }
+
+
 function handleAnswer(answerOption, questionData) {
   const isCorrect = answerOption.dataset.correct === "true";
   const answerOptions = document.querySelectorAll(".answer-option");
@@ -112,7 +114,7 @@ function showFinalResult() {
   const quizContainer = document.querySelector(".quiz-container");
 
   quizContainer.style.display = "none";
-  fetchPlayers();
+  // fetchPlayers();
 
   questionContainer.innerHTML = `
     <div class="result-message">
@@ -124,36 +126,69 @@ function showFinalResult() {
       <button class="button" onclick="redirectToOtherPage()">Boshqa sahifaga o'tish</button>
     </div>
   `;
+  getBestScore(correctAnswersCount)
+  addAllGame(correctAnswersCount)
+  addNumberGame()
 }
 
-function fetchPlayers() {
-  axios.get(playersApiUrl)
-    .then((response) => {
-      const players = response.data;
-      displayPlayers(players);
-    })
-    .catch((error) => {
-      console.error("Foydalanuvchilarni olishda xato:", error);
-    });
-}
-function displayPlayers(players) {
-  const playersContainer = document.getElementById("players-container");
-  playersContainer.innerHTML = "<h3>Foydalanuvchilar</h3>";
+// function fetchPlayers() {
+//   axios.get(playersApiUrl)
+//     .then((response) => {
+//       const players = response.data;
+//       displayPlayers(players);
+//     })
+// }
+// function displayPlayers(players) {
+//   const playersContainer = document.getElementById("players-container");
+//   playersContainer.innerHTML = "<h3>Foydalanuvchilar</h3>";
 
-  players.forEach((player) => {
-    const playerElement = document.createElement("div");
-    playerElement.classList.add("player");
+//   players.forEach((player) => {
+//     const playerElement = document.createElement("div");
+//     playerElement.classList.add("player");
 
-    playerElement.innerHTML = `
-      <img src="${player.userAvatar}" alt="${player.username}" class="player-avatar">
-      <span class="player-name">${player.username}</span>
-    `;
-    playersContainer.appendChild(playerElement);
+//     playerElement.innerHTML = `
+//       <img src="${player.userAvatar}" alt="${player.username}" class="player-avatar">
+//       <span class="player-name">${player.username}</span>
+//     `;
+//     playersContainer.appendChild(playerElement);
+//   });
+// }
+
+function getBestScore(correct) {
+  axios
+  .get(`https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz/${userId}`)
+  .then((res) => {
+    const userData = res.data
+    if (correct > userData.bestScore) {
+      return axios.put(`https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz/${userId}`,{
+        bestScore:correct,
+      });
+    }
   });
 }
 
+function addAllGame(correct) {
+  axios.get(`https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz/${userId}`)
+  .then((res) => {
+    const oldNum = res.data.totalOfFindAnswerAll
+    const updatedNum = oldNum + correct
+    return axios.put(`https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz/${userId}`,{
+      totalOfFindAnswerAll: updatedNum,
+    });
+  });
+}
+
+function addNumberGame() {
+  axios.get(`https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz/${userId}`)
+  .then((res) => {
+    const numGame = res.data.totalOfGame
+    const updatedNum = numGame + 1
+    return axios.put(`https://678b9aa91a6b89b27a2ae07d.mockapi.io/quiz/${userId}`, {
+      totalOfGame: updatedNum,
+    })
+  })
+}
+
 function redirectToOtherPage() {
- 
-  sessionStorage.setItem("userId", userId);
   window.location.href = `category.html?userId=${userId}`;
 } 
