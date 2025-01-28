@@ -12,10 +12,11 @@ axios
             document.getElementById('line').innerHTML += `
                 <tr>
                     <td>${index+1 || '-'}</td>
+                    <td><img class='userimg' src="${user.userAvatar}" alt=""></td>
                     <td>${user.username || '-'}</td>
                     <td>${user.totalOfGame || 0}</td>
                     <td>${user.totalOfFindAnswerAll || 0}</td>
-                    <td><img class='userimg' src="${user.userAvatar}" alt=""></td>
+                    <td>${user.bestScore || 0}</td>
                 </tr>
             `;
         });
