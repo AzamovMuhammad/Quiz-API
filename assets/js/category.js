@@ -46,9 +46,9 @@ axios
   });
 
 const home_page = document.querySelector(".home_page");
-const all_card = document.querySelector(".all_card");
 const bumbuzle = document.querySelector(".bumbuzle");
 const serach_input = document.querySelector("#serach_input");
+const all_card = document.querySelector(".all_card");
 
 function showHome() {
   home_page.style.display = 'flex'
