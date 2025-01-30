@@ -51,7 +51,7 @@ const bumbuzle = document.querySelector(".bumbuzle");
 const serach_input = document.querySelector("#serach_input");
 
 function showHome() {
-  home_page.style.display = 'block'
+  home_page.style.display = 'flex'
   all_card.style.display = 'none'
   bumbuzle.style.display = 'none'
   serach_input.style.display = 'none'
@@ -64,10 +64,7 @@ function showSingle() {
 
 }
 function showGroup() {
-  home_page.style.display = 'none'
-  all_card.style.display = 'none'
-  bumbuzle.style.display = 'block'
-  serach_input.style.display = 'block'
+  window.location.href = `baamb_cate.html?userId=${userId}`
 }
 
 
