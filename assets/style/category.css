@@ -102,7 +102,35 @@ main {
 .home_page {
   width: calc(100% - 200px);
   margin-left: 220px;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
 }
+.home{
+  display: flex;
+}
+.letter {
+  display: inline-block;
+  animation: bounce 2.5s linear infinite;
+}
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  10% { transform: translateY(-30px); }
+  20% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+.letter:nth-child(1) { animation-delay: 0s; }
+.letter:nth-child(2) { animation-delay: 0.2s; }
+.letter:nth-child(3) { animation-delay: 0.4s; }
+.letter:nth-child(4) { animation-delay: 0.6s; }
+.letter:nth-child(5) { animation-delay: 0.8s; }
+.letter:nth-child(6) { animation-delay: 1s; }
+.letter:nth-child(7) { animation-delay: 1.2s; }
+.letter:nth-child(8) { animation-delay: 1.4s; }
+.letter:nth-child(9) { animation-delay: 1.6s; }
+
 .bumbuzle {
   display: none;
   width: calc(100% - 200px);
