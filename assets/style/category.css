@@ -71,8 +71,9 @@ main {
   position: fixed;
   top: 60px;
   left: 0;
-  background-color: #f9f9f9;
+  background-color: #f1f1f1;
   cursor: pointer;
+  border-right: 2px solid #351570;
 }
 
 .menu_t, .menu_topic, .help {
