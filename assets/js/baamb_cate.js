@@ -156,5 +156,5 @@ function displayCategories(filter = "") {
   });
   
   function loadingSettings(id) {
-    window.location.href = `settings.html?category=${id}&userId=${userId}`;
+    window.location.href = `baamb_settings.html?category=${id}&userId=${userId}`;
   }
