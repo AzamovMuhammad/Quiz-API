@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.container {
+  width: 100%;
+}
+.nav {
+  width: 100%;
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: orange;
+  box-shadow: 0px 2px 3px rgb(89, 89, 89);
+}
+
+.nav button {
+  margin-left: 20px;
+}
+.nav h1 {
+  margin-right: 20px;
+  color: white;
+}
+/* ====================================== category part ====================================== */
+.categories {
+  width: 100%;
+  padding: 30px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+}
+#serach_input{
+    min-width: 40%;
+    padding: 10px 10px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.all_card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width:100%;
+  gap: 20px; /* Offset for fixed sidebar */
+}
+
+.topic_card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 200px;
+  height: 230px;
+  border-radius: 10px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.topic_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+#score-table {
+  color: black;
+  text-decoration: none;
+}
+
+.topic_name {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding: 0px 10px 20px 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: linear-gradient(
+    #00000000,
+    #00000000,
+    #00000000,
+    #000000cb,
+    #000000
+  );
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>baamb_settings</title>
+    <link rel="stylesheet" href="assets/style/baamb_settings.css" />
+    <script src="assets/js/baamb_settings.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav">
+        <button onclick="backMainPage()">Back</button>
+        <h1>Game Settings</h1>
+      </div>
+      <div class="settings">
+        <h1 class="set_title">Choose options</h1>
+        <div class="options">
+            <h2>Number of group</h2>
+          <div class="option">
+            <div>
+              <input required type="radio" id="op2" name="team" />
+              <label for="op2">2</label>
+            </div>
+            <div>
+              <input required type="radio" id="op3" name="team" />
+              <label for="op3">3</label>
+            </div>
+            <div>
+              <input required type="radio" id="op4" name="team" />
+              <label for="op4">4</label>
+            </div>
+          </div>
+          <h2>Number of question</h2>
+          <div class="option">
+            <div>
+              <input required type="radio" id="op16" name="option" />
+              <label for="op16">16</label>
+            </div>
+            <div>
+              <input required type="radio" id="op24" name="option" />
+              <label for="op24">24</label>
+            </div>
+            <div>
+              <input required type="radio" id="op32" name="option" />
+              <label for="op32">32</label>
+            </div>
+          </div>
+          <button class="start" onclick="goToNextPage()">Start Game</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
