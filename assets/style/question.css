@@ -1,9 +1,11 @@
-body {
+* {
+  padding: 0;
   margin: 0;
+}
+
+body {
   font-family: 'Arial', sans-serif;
-  background: url('https://avatars.mds.yandex.net/i?id=ef7d544512649ac1e5fa3c854c289231_l-9122788-images-thumbs&n=13') no-repeat center center fixed;
-  background-size: cover;
-  filter: brightness(0.7);
+  background-color: darkmagenta;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -13,31 +15,29 @@ body {
 }
 
 .quiz-container {
-  width: 90%;
-  max-width: 1400px;
-  background: transparent;
+  width: 1200px;
   border-radius: 20px;
-  padding: 50px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
 }
 
-.question-container {
-  margin-bottom: 20px;
-}
 
 .question {
   padding: 15px;
-  border: 3px solid #fff;
   border-radius: 10px;
-  background: rgba(119, 19, 206, 0.6);
-  color: white;
+  background: white;
+  color: #333333;
   font-size: 40px;
-  margin-bottom: 100px;
+  margin: 20px;
+  width: 1000px;
+  font-weight: 500;
+  height: 150px;
+  display: flex;
+  align-items: center;
 }
 
 .answers-container {
@@ -50,11 +50,17 @@ body {
   gap: 20px;
   padding: 0;
   font-size: 25px;
+  width: 1500px;
+  height: 250px;
+  margin-top: 120px;
+  text-align: center;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .answer-option {
-  background: rgba(23, 38, 200, 0.6);
-  color: white;
+  background: white;
+  color: #333333;
   border: 2px solid transparent;
   border-radius: 10px;
   padding: 15px;
@@ -65,6 +71,7 @@ body {
   gap: 15px;
   justify-content: flex-start;
   text-align: left;
+  
 }
 
 .answer-option img {
@@ -74,12 +81,13 @@ body {
 
 .answer-option span {
   flex-grow: 1;
-  text-align: left;
+  text-align: center;
 }
 
 .answer-option:hover {
-  background: #0ddbdb9c;
-  transform: scale(1.05);
+  background: rgb(102, 102, 102);;
+  color: white ;
+  transition: 0.5s;
 }
 
 .answer-option.correct {
@@ -104,6 +112,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 230px;
 }
 
 .button-container {
@@ -112,6 +121,7 @@ body {
   justify-content: center; /* Центрирует кнопки по горизонтали */
   align-items: center; /* Центрирует кнопки по вертикали */
   gap: 20px; /* Расстояние между кнопками */
+  margin-bottom: 100px;
 }
 
 .button {
@@ -127,4 +137,9 @@ body {
 
 .button:hover {
   background: #0056b3;
+}
+
+.squer {
+  width: 50px;
+  height: 50px;
 }
