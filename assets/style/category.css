@@ -96,10 +96,6 @@ main {
   height: 30px;
 }
 
-.help_icon {
-  width: 20px;
-  height: 20px;
-}
 
 .home_page {
   width: calc(100% - 200px);
