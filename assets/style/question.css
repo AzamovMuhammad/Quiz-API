@@ -5,24 +5,23 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: darkmagenta;
+  background-color: #351570;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   flex-direction: column;
 }
 
 .quiz-container {
-  width: 1200px;
+  width: 100%;
   border-radius: 20px;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  margin-top: 100px;
 }
 
 
@@ -45,14 +44,13 @@ body {
 }
 
 .answers {
+  margin-top: 70px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 600px 600px;
   gap: 20px;
   padding: 0;
   font-size: 25px;
-  width: 1500px;
   height: 250px;
-  margin-top: 120px;
   text-align: center;
   font-weight: 500;
   cursor: pointer;
@@ -85,34 +83,34 @@ body {
 }
 
 .answer-option:hover {
-  background: rgb(102, 102, 102);;
+  background: rgb(144, 144, 144);;
   color: white ;
   transition: 0.5s;
 }
 
 .answer-option.correct {
   background: green;
+  color: white;
 }
 
 .answer-option.wrong {
   background: darkred;
+  color: white;
 }
 
 .result-message {
-  font-size: 2em; /* Увеличиваем размер текста */
+  font-size: 2em; 
   color: #fff;
-  margin-top: 30px;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
-  border: 3px solid #fff; /* Добавляем бордер */
-  background: rgba(0, 0, 0, 0.7); /* Добавляем полупрозрачный фон */
+  border: 3px solid #fff; 
+  background: rgba(0, 0, 0, 0.7);
   animation: fadeIn 1s;
-  text-align: center; /* Выравнивание текста по центру */
+  text-align: center; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 230px;
 }
 
 .button-container {
@@ -120,8 +118,6 @@ body {
   display: flex;
   justify-content: center; /* Центрирует кнопки по горизонтали */
   align-items: center; /* Центрирует кнопки по вертикали */
-  gap: 20px; /* Расстояние между кнопками */
-  margin-bottom: 100px;
 }
 
 .button {
@@ -139,7 +135,3 @@ body {
   background: #0056b3;
 }
 
-.squer {
-  width: 50px;
-  height: 50px;
-}
