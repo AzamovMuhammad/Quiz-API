@@ -118,6 +118,7 @@ function showFinalResult() {
   fetchPlayers();
 
   questionContainer.innerHTML = `
+    <div class="resultF">
     <div class="result-message">
       Viktorina yakunlandi! 
       <br>To'g'ri javoblar: ${correctAnswersCount} 
@@ -125,6 +126,7 @@ function showFinalResult() {
     </div>
     <div class="button-container">
       <button class="button" onclick="redirectToOtherPage()">Boshqa sahifaga o'tish</button>
+    </div>
     </div>
   `;
 }
