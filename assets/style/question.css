@@ -147,7 +147,6 @@ body {
  .quiz-container {
  width: 100%;
  height: 100vh;
-
  display: flex;
  justify-content: space-between;
  flex-direction: column;
@@ -261,4 +260,20 @@ body {
 
 .button:hover {
   background: #0056b3;
+}
+
+
+.timer-container {
+  width: 100%;
+  height: 10px;
+  background-color: #ddd;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.timer-bar {
+  width: 100%;
+  height: 100%;
+  background-color: #4caf50;
+  transition: width linear;
 }
